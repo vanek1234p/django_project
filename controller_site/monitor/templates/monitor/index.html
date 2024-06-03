@@ -1,0 +1,57 @@
+<div>
+    <h3>Список активных заданий</h3>
+    {% if active_tasks %}
+        <ul>
+            {% for task in active_tasks %}
+            <li>
+                <details>
+                    <summary>{{ task.name_order }}</summary>
+                    <ul>
+                        <li> номер цеха:	{{ task.workshop_number }} </li>
+                        <li> дата:    {{ task.creation_date }} </li>
+                        <li> имя модели:    {{ task.name_model }} </li>
+                        <li> имя заказа:    {{ task.name_order }} </li>
+                        <li> имя операции:   {{ task.name_operation }} </li>
+                        <li> номер операции:   {{ task.number_operation }} </li>
+                        <li> название рабочего центра:   {{ task.name_work_center_name }} </li>
+                        <li> ФИО рабочих исполнителей:    {{ task.full_name_of_the_workers }} </li>
+                    </ul>
+                    <input type="button" value="вызвать мастера" />
+                    <input type="button" value="вызвать контролёра" />
+                </details>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>not active tasks</p>
+    {% endif %}
+
+    {% if completed_tasks %}
+        <h3>Список недавно выполненных заданий</h3>
+        <ul>
+            {% for task in completed_tasks %}
+            <li>
+                <details>
+                    <summary>{{ task.name_order }}</summary>
+                    <ul>
+                        <li> номер цеха:	{{ task.workshop_number }} </li>
+                        <li> дата:    {{ task.creation_date }} </li>
+                        <li> имя модели:    {{ task.name_model }} </li>
+                        <li> имя заказа:    {{ task.name_order }} </li>
+                        <li> имя операции:   {{ task.name_operation }} </li>
+                        <li> номер операции:   {{ task.number_operation }} </li>
+                        <li> название рабочего центра:   {{ task.name_work_center_name }} </li>
+                        <li> ФИО рабочих исполнителей:    {{ task.full_name_of_the_workers }} </li>
+                    </ul>
+                    <input type="button" value="вызвать мастера" />
+                    <input type="button" value="вызвать контролёра" />
+                </details>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="{% url 'monitor:create_task' %}">
+        <input type="submit" value="создать новое задание" name="save" id="id_save"/>
+    </form>
+
+</div>

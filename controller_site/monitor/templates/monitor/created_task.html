@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'monitor:index' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <p><label class="required">номер:  </label><input type="number" required id="id_workshop_number" name="workshop_number"></p>
+        <p><label class="required">дата:  </label><input type="date" name="creation_date_0" size="10" required id="id_creation_date_0"></p>
+        <p><label class="required">время:  </label><input type="time" name="creation_date_1" size="8" required id="id_creation_date_1"></p>
+        <p><label class="required">имя модели:  </label><input type="text" maxlength="200" name="name_model" id="id_name_model"></p>
+        <p><label class="required">имя заказа:  </label><input type="text" maxlength="200" name="name_order" id="id_name_order"></p>
+        <p><label class="required">имя операции:  </label><input type="text" maxlength="200" name="name_operation" id="id_name_operation"></p>
+        <p><label class="required">номер операции:  </label><input type="number" name="number_operation" id="id_number_operation"></p>
+        <p><label class="required">название рабочего центра:  </label><input type="text" maxlength="200" name="name_work_center_name" id="id_name_work_center_name"></p>
+        <p><label class="required">ФИО рабочих исполнителей:  </label><input type="text" maxlength="200" name="full_name_of_the_workers" id="id_full_name_of_the_workers"></p>
+        <p><button type='submit'>создать</button></p>
+    </fieldset>
+</form>
+
+</body>
+</html>
